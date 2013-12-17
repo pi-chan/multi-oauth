@@ -43,3 +43,14 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'devise'
+gem 'omniauth-hatena'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'figaro'
+
+group :development do
+  gem 'letter_opener'
+end
+
