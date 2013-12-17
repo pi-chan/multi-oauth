@@ -1,0 +1,16 @@
+%h1 multi auth
+- if user_signed_in?
+  %ul
+    %li= link_to "ログアウト", destroy_user_session_path, method: :delete
+    - if @providers.include? "github"
+      %li githubと接続済み
+    - else
+      %li= link_to "githubと接続", "/auth/github/"
+    - if @providers.include? "hatena"
+      %li hatenaと接続済み
+    - else
+      %li= link_to "hatenaと接続", "/auth/hatena/"
+- else
+  %ul
+    %li= link_to "ログイン", new_user_session_path
+    %li= link_to "サインアップ", new_registration_path(:user)
