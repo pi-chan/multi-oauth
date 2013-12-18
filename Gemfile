@@ -48,6 +48,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-hatena'
 gem 'omniauth-github'
+gem 'omniauth-twitter'
 gem 'figaro'
 gem 'haml-rails'
 
@@ -55,5 +56,6 @@ group :development do
   gem 'letter_opener'
   gem 'erb2haml'
   gem 'debugger'
+  gem 'better_errors'
 end
 

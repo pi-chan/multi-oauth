@@ -9,4 +9,11 @@ class AuthController < ApplicationController
     end
     redirect_to root_url
   end
+
+  def destroy
+    provider = params[:provider]
+    auth = Auth.find_by_provider_and_user_id(provider,current_user.id)
+    auth.destroy
+    redirect_to root_url
+  end
 end

@@ -2,14 +2,24 @@
 - if user_signed_in?
   %ul
     %li= link_to "ログアウト", destroy_user_session_path, method: :delete
+    - if @providers.include? "twitter"
+      %li
+        twitterと接続済み
+        = link_to "接続解除", destroy_connection_path(:twitter), method: :delete, data:{confirm:"Sure？"}
+    - else
+      %li= link_to "twitterと接続", "/auth/twitter"
     - if @providers.include? "github"
-      %li githubと接続済み
+      %li
+        githubと接続済み
+        = link_to "接続解除", destroy_connection_path(:github), method: :delete, data:{confirm:"Sure？"}
     - else
-      %li= link_to "githubと接続", "/auth/github/"
+      %li= link_to "githubと接続", "/auth/github"
     - if @providers.include? "hatena"
-      %li hatenaと接続済み
+      %li
+        hatenaと接続済み
+        = link_to "接続解除", destroy_connection_path(:hatena), method: :delete, data:{confirm:"Sure？"}
     - else
-      %li= link_to "hatenaと接続", "/auth/hatena/"
+      %li= link_to "hatenaと接続", "/auth/hatena"
 - else
   %ul
     %li= link_to "ログイン", new_user_session_path

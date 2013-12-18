@@ -1,9 +1,9 @@
 Multiauth::Application.routes.draw do
-  get "auth/create"
   root "home#index"
   devise_for :users
 
   get "/auth/:provider/callback" => "auth#create"
+  delete "/auth/destroy/:provider" => 'auth#destroy', as: :destroy_connection
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
